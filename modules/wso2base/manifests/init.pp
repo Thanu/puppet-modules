@@ -54,6 +54,8 @@ class wso2base {
   $hosts_mapping      = hiera_hash("wso2::hosts_mapping")
   $ipaddress          = hiera("wso2::ipaddress")
   $fqdn               = hiera("wso2::fqdn")
+  $password_secret_alias = hiera("wso2::password_secret_alias")
+
 
   $carbon_home        = "${install_dir}/${pack_extracted_dir}"
 

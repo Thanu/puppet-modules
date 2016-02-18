@@ -14,33 +14,27 @@
 ---
 wso2::clustering :
     enabled : true
-    local_member_host : 192.168.100.20
-    local_member_port : 4000
-    membership_scheme : wka
-    sub_domain : worker
-    wka :
-       members :
-         -
-           hostname : 192.168.100.10
-           port : 4000
-         -
-           hostname : 192.168.100.20
-           port : 4000
+    membership_scheme : kubernetes
+    sub_domain : mgt
+    k8 :
+       k8_master : http://172.17.8.101:8080
+       k8_namespace : default
+       k8_services : wso2esb-manager,wso2esb-worker
 
-#wso2::registry_mounts:
-#  wso2_config_db:
-#    path: /_system/config/esb
-#    target_path: /_system/config/esb
-#    read_only: true
-#    registry_root: /
-#    enable_cache: true
-#
-#  wso2_gov_db:
-#    path: /_system/governance
-#    target_path: /_system/governance
-#    read_only: true
-#    registry_root: /
-#    enable_cache: true
+wso2::registry_mounts:
+  wso2_config_db:
+    path: /_system/config/esb
+    target_path: /_system/config/esb
+    read_only: true
+    registry_root: /
+    enable_cache: true
+
+  wso2_gov_db:
+    path: /_system/governance
+    target_path: /_system/governance
+    read_only: true
+    registry_root: /
+    enable_cache: true
 
 wso2::dep_sync :
     enabled : false
@@ -52,3 +46,9 @@ wso2::dep_sync :
        user : username
        password : password
        append_tenant_id: true
+
+wso2::ports :
+    offset : 0
+    proxyPort :
+      http : 32003
+      https : 32004

@@ -17,7 +17,7 @@
   ~  under the License.
   -->
 
-<Server port="8005" shutdown="SHUTDOWN">
+<Server xmlns:svns="http://org.wso2.securevault/configuration" port="8005" shutdown="SHUTDOWN">
 
   <Service className="org.wso2.carbon.tomcat.ext.service.ExtendedStandardService" name="Catalina">
 
@@ -76,7 +76,12 @@
                 secure="true"
                 SSLEnabled="true"
 				keystoreFile="${carbon.home}/repository/resources/security/wso2carbon.jks"
-				keystorePass="wso2carbon" 
+				<%- if @password_secret_alias['connector_keystore_passowrd'] -%>
+                     keystorePass="password"
+                     svns:secretAlias="Server.Service.Connector.keystorePass"
+                     <%- else -%>
+                     keystorePass="wso2carbon"
+                     <%- end -%>
                 compressionMinSize="2048"
                 noCompressionUserAgents="gozilla, traviata"
                 compressableMimeType="text/html,text/javascript,application/x-javascript,application/javascript,application/xml,text/css,application/xslt+xml,text/xsl,image/gif,image/jpg,image/jpeg"

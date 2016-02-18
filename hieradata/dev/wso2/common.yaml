@@ -108,7 +108,7 @@ wso2::master_datasources :
     url : jdbc:h2:repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000
     username : "%{hiera('wso2::datasources::common::username')}"
     password : "%{hiera('wso2::datasources::common::password')}"
-    #secretAlias :
+    secret_alias : 'Datasources.WSO2_CARBON_DB.Configuration.Password'
     jndi_config : jdbc/WSO2CarbonDB
     max_active : "%{hiera('wso2::datasources::common::max_active')}"
     max_wait : "%{hiera('wso2::datasources::common::max_wait')}"
@@ -131,3 +131,11 @@ wso2::datasources::common::validation_interval : '30000'
 
 # MySQL datasources configuration
 wso2::datasources::mysql::validation_query : 'SELECT 1'
+
+wso2::password_secret_alias:
+  key_store_password: 'Carbon.Security.KeyStore.Password'
+  key_store_key_password: 'Carbon.Security.KeyStore.KeyPassword'
+  trust_store_password: 'Carbon.Security.TrustStore.Password'
+  user_manager_admin_password: 'UserManager.AdminUser.Password'
+  connector_keystore_passowrd: 'Server.Service.Connector.keystorePass'
+

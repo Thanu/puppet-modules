@@ -16,14 +16,18 @@
   ~  under the License.
   -->
         
-<UserManager>
+<UserManager xmlns:svns="http://org.wso2.securevault/configuration">
     <Realm>
         <Configuration>
 		<AddAdmin>true</AddAdmin>
                 <AdminRole>admin</AdminRole>
                 <AdminUser>
                      <UserName>admin</UserName>
+                     <%- if @password_secret_alias['user_manager_admin_password'] -%>
+                     <Password svns:secretAlias="<%= @password_secret_alias['user_manager_admin_password'] %>">password</Password>
+                     <%- else -%>
                      <Password>admin</Password>
+                     <%- end -%>
                 </AdminUser>
             <EveryOneRoleName>everyone</EveryOneRoleName> <!-- By default users in this role sees the registry root -->
             <Property name="dataSource"><%= @master_datasources[@usermgt_datasource]['jndi_config'] %></Property>
