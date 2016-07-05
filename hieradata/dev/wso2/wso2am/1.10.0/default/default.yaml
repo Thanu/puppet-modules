@@ -125,6 +125,7 @@ wso2::apim_publisher:
 
 # Use H2 based wso2am_db in a stand-alone setup. In a clustered setup this should point to a MySQL data source
 wso2::is_datasource: wso2am_db
+wso2::am_datasource: wso2am_db
 
 wso2::am_datasources:
   wso2am_db:
@@ -338,34 +339,4 @@ wso2::master_datasources:
 #  xmpp_password:
 #    secret_alias: MultifactorAuthentication.XMPPSettings.XMPPConfig.XMPPPassword
 #    secret_alias_value: repository/conf/identity/identity.xml//MultifactorAuthentication/XMPPSettings/XMPPConfig/XMPPPassword,false
-#    password: wso2carbon
-#
-#  axis2_https_listener_trust_store_password:
-#    secret_alias: Axis2.Https.Listener.TrustStore.Password
-#    secret_alias_value: repository/conf/axis2/axis2.xml//axisconfig/transportReceiver[@name='https']/parameter[@name='truststore']/TrustStore/Password,false
-#    password: wso2carbon
-#
-#  axis2_https_listener_key_store_password:
-#    secret_alias: Axis2.Https.Listener.KeyStore.Password
-#    secret_alias_value: repository/conf/axis2/axis2.xml//axisconfig/transportReceiver[@name='https']/parameter[@name='keystore']/KeyStore/Password,false
-#    password: wso2carbon
-#
-#  axis2_https_listener_key_store_key_password:
-#    secret_alias: Axis2.Https.Listener.KeyStore.KeyPassword
-#    secret_alias_value: repository/conf/axis2/axis2.xml//axisconfig/transportReceiver[@name='https']/parameter[@name='keystore']/KeyStore/KeyPassword,false
-#    password: wso2carbon
-#
-#  axis2_https_sender_trust_store_password:
-#    secret_alias: Axis2.Https.Sender.TrustStore.Password
-#    secret_alias_value: repository/conf/axis2/axis2.xml//axisconfig/transportSender[@name='https']/parameter[@name='truststore']/TrustStore/Password,false
-#    password: wso2carbon
-#
-#  axis2_https_sender_key_store_password:
-#    secret_alias: Axis2.Https.Sender.KeyStore.Password
-#    secret_alias_value: repository/conf/axis2/axis2.xml//axisconfig/transportSender[@name='https']/parameter[@name='keystore']/KeyStore/Password,false
-#    password: wso2carbon
-#
-#  axis2_https_sender_key_store_key_password:
-#    secret_alias: Axis2.Https.Sender.KeyStore.KeyPassword
-#    secret_alias_value: repository/conf/axis2/axis2.xml//axisconfig/transportSender[@name='https']/parameter[@name='keystore']/KeyStore/KeyPassword,false
 #    password: wso2carbon

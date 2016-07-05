@@ -114,7 +114,7 @@ wso2::activity_datasources:
     name: ACTIVITY_DB
     description: The datasource used for activiti engine
     driver_class_name: "%{hiera('wso2::datasources::mysql::driver_class_name')}"
-    url: jdbc:mysql://mysql-bps-db.marathon.mesos:10002/BPS_DB?autoReconnect=true
+    url: jdbc:mysql://mysql-bps-db.marathon.mesos:10031/BPS_DB?autoReconnect=true
     username: "%{hiera('wso2::datasources::mysql::username')}"
     password: "%{hiera('wso2::datasources::mysql::password')}"
     jndi_config: jdbc/ActivitiDB
@@ -130,7 +130,7 @@ wso2::bps_datasources:
     name: BPS_DS
     description: The datasource used for bps
     driver_class_name: "%{hiera('wso2::datasources::mysql::driver_class_name')}"
-    url: jdbc:mysql://mysql-bps-db.marathon.mesos:10002/BPS_DB?autoReconnect=true
+    url: jdbc:mysql://mysql-bps-db.marathon.mesos:10031/BPS_DB?autoReconnect=true
     username: "%{hiera('wso2::datasources::mysql::username')}"
     password: "%{hiera('wso2::datasources::mysql::password')}"
     jndi_config: bpsds

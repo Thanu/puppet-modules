@@ -33,6 +33,7 @@ wso2::template_list:
 #  - bin/ciphertool.sh
 #  - password-tmp
 
+wso2::mb_thrift_server : 0.0.0.0
 wso2::mb_thrift_port: 7611
 
 # In Kubernetes proxy ports need to be configured to match with node ports.

@@ -160,14 +160,45 @@ wso2::datasources::h2::driver_class_name: 'org.h2.Driver'
 wso2::datasources::h2::validation_query: 'SELECT 1'
 
 # MySQL datasources configuration
-wso2::datasources::mysql::username: 'root'
-wso2::datasources::mysql::password: 'root'
+wso2::datasources::mysql::username: 'wso2carbon'
+wso2::datasources::mysql::password: 'wso2carbon'
 wso2::datasources::mysql::connector_jar: 'mysql-connector-java-5.1.36-bin.jar'
 wso2::datasources::mysql::driver_class_name: 'com.mysql.jdbc.Driver'
 wso2::datasources::mysql::validation_query: 'SELECT 1'
 
+wso2::key_stores:
+  # primary key store for the purpose of storing the keys for encrypting sensitive data
+  key_store:
+    location: 'repository/resources/security/wso2carbon.jks'
+    type: 'JKS'
+    password: 'wso2carbon'
+    key_alias: 'wso2carbon'
+    key_password: 'wso2carbon'
+  # Encrypt Decrypt Store will be used for encrypting and decrypting
+  registry_key_store:
+    location: 'repository/resources/security/wso2carbon.jks'
+    type: 'JKS'
+    password: 'wso2carbon'
+    key_alias: 'wso2carbon'
+    key_password: 'wso2carbon'
+  # key store for the purpose of storing the trusted certificates of public keys in keystores
+  trust_store:
+    location: 'repository/resources/security/client-truststore.jks'
+    type: 'JKS'
+    password: 'wso2carbon'
+  # keystore for authenticating the communication over SSL/TLS for Tomcat level connections
+  connector_key_store:
+    location: 'repository/resources/security/wso2carbon.jks'
+    password: 'wso2carbon'
+  user_trusted_rp_store:
+    location: 'repository/resources/security/userRP.jks'
+    type: 'JKS'
+    password: 'wso2carbon'
+    key_password: 'wso2carbon'
+
 # Secure vault configuration
 wso2::enable_secure_vault: false
+
 
 wso2::sso_authentication:
     enabled : false
